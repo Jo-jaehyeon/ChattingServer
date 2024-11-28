@@ -130,6 +130,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <CompileAs>Default</CompileAs>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -173,7 +174,7 @@
     <ClCompile Include="Protocol.pb.cc">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="ServerPacketHandler.cpp" />
+    <ClCompile Include="ClientPacketHandler.cpp" />
     <ClCompile Include="Struct.pb.cc">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
@@ -184,7 +185,7 @@
     <ClInclude Include="GameSessionManager.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Protocol.pb.h" />
-    <ClInclude Include="ServerPacketHandler.h" />
+    <ClInclude Include="ClientPacketHandler.h" />
     <ClInclude Include="Struct.pb.h" />
   </ItemGroup>
   <ItemGroup>
@@ -193,7 +194,7 @@
     <None Include="..\Common\Protobuf\bin\Protocol.proto" />
     <None Include="..\Common\Protobuf\bin\Struct.proto" />
   </ItemGroup>
-<ItemGroup>
+  <ItemGroup>
     <UpToDateCheckInput Include="..\Common\Protobuf\bin\Enum.proto" />
     <UpToDateCheckInput Include="..\Common\Protobuf\bin\Protocol.proto" />
     <UpToDateCheckInput Include="..\Common\Protobuf\bin\Struct.proto" />
