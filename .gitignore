@@ -435,7 +435,6 @@ FodyWeavers.xsd
 Binary
 Libraries
 
-*.sln
 **/*.vcxproj.*
 
 **/*.pb.h
