@@ -29,6 +29,7 @@ public:
 	virtual void	CloseService();
 	void			SetSessionFactory();
 
+	void			Broadcast(SendBufferRef sendBuffer);
 	SessionRef		CreateSession();
 	void			AddSession(SessionRef session);
 	void			ReleaSession(SessionRef session);

@@ -17,13 +17,9 @@ public:
     }
     virtual void OnConnected() override
     {
-        cout << "Conneted To Serer " << endl;
-
-        SendBufferRef sendbuffer = GSendBufferManager->Open(4096);
-        ::memcpy(sendbuffer->Buffer(), sendData, sizeof(sendData));
-        sendbuffer->Close(sizeof(sendData));
-
-        Send(sendbuffer);
+        Protocol::C_LOGIN pkt;
+        auto sendBuffer = ServerPacketHandler::MakeSendBuffer(pkt);
+        Send(sendBuffer);
     }
     virtual void OnDisconnected() override
     {
@@ -64,6 +60,21 @@ int main()
                     service->GetIocpCore()->Dispatch();
                 }
             });
+    }
+
+    Protocol::C_CHAT chatPkt;
+    
+    
+
+    while (true)
+    {
+        string text;
+        getline(cin, text);
+        chatPkt.set_msg(text);
+
+        auto sendBuffer = ServerPacketHandler::MakeSendBuffer(chatPkt);
+        service->Broadcast(sendBuffer);
+        this_thread::sleep_for(1s);
     }
 
     GThreadManager->Join();
